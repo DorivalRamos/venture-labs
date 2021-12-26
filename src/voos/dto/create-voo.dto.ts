@@ -3,17 +3,14 @@ import {
   IsNotEmpty,
   MaxLength,
   MinLength,
-  IsOptional,
   IsDecimal,
-  IsDate,
   IsMilitaryTime,
 } from 'class-validator';
-import { Companhia } from 'src/companhias/companhia.entity';
-import { JoinColumn, OneToMany } from 'typeorm';
-import { Voo } from '../entities/voo.entity';
+import { Companhia } from 'src/Models/companhia.entity';
 
 export class CreateVooDto {
-  @IsOptional()
+  @IsString()
+  @IsNotEmpty({ message: 'Infome a companhia Aéria do Voo' })
   companhia: Companhia;
 
   @IsString()

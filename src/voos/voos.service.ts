@@ -6,7 +6,7 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateVooDto } from './dto/create-voo.dto';
 import { UpdateVooDto } from './dto/update-voo.dto';
-import { Voo } from './entities/voo.entity';
+import { Voo } from '../Models/voo.entity';
 import { VooRepository } from './voos.repository';
 
 @Injectable()
@@ -50,7 +50,7 @@ export class VoosService {
       );
     } */
 
-    const {
+    /* const {
       assento1,
       assento2,
       assento3,
@@ -62,8 +62,7 @@ export class VoosService {
       assento9,
       assento10,
     } = updateVooDto;
-
-    
+ */
     try {
       await voo.save();
       return voo;

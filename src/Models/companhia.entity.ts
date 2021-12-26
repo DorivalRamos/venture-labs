@@ -1,4 +1,5 @@
-import { Voo } from 'src/voos/entities/voo.entity';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Voo } from './voo.entity';
 import {
   BaseEntity,
   Column,
@@ -18,9 +19,8 @@ export class Companhia extends BaseEntity {
   @Column({ nullable: false, type: 'varchar', length: 100 })
   nome: string;
 
-  @JoinColumn({ name: 'voo_id' })
-  @OneToMany(() => Voo, (Voos) => Voos.companhia, {
+  @OneToMany(() => Voo, (companhias) => Companhia, {
     cascade: true,
   })
-  Voos: Voo[];
+  voos: Voo[];
 }

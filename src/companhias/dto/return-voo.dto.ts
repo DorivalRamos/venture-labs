@@ -1,4 +1,4 @@
-import { Voo } from 'src/voos/entities/voo.entity';
+import { Voo } from '../../Models/voo.entity';
 
 export class ReturnVooDto {
   voo: Voo;

@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { InternalServerErrorException } from '@nestjs/common';
-import { Voo } from './entities/voo.entity';
+import { Voo } from '../Models/voo.entity';
 import { CreateVooDto } from './dto/create-voo.dto';
 
 @EntityRepository(Voo)

@@ -4,7 +4,7 @@ import {
   InternalServerErrorException,
 } from '@nestjs/common';
 
-import { Companhia } from './companhia.entity';
+import { Companhia } from '../Models/companhia.entity';
 import { CreateCompanhiaDto } from './dto/create-companhia.dto';
 
 @EntityRepository(Companhia)

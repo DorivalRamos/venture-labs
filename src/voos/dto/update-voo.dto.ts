@@ -1,35 +1,21 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { IsOptional } from 'class-validator';
+import { Companhia } from 'src/Models/companhia.entity';
 import { CreateVooDto } from './create-voo.dto';
 
-export class UpdateVooDto {
+export class UpdateVooDto extends PartialType(CreateVooDto) {
   @IsOptional()
-  assento1: boolean;
+  companhia: Companhia;
 
   @IsOptional()
-  assento2: boolean;
+  origem: string;
 
   @IsOptional()
-  assento3: boolean;
+  destino: string;
 
   @IsOptional()
-  assento4: boolean;
+  valor: string;
 
   @IsOptional()
-  assento5: boolean;
-
-  @IsOptional()
-  assento6: boolean;
-
-  @IsOptional()
-  assento7: boolean;
-
-  @IsOptional()
-  assento8: boolean;
-
-  @IsOptional()
-  assento9: boolean;
-
-  @IsOptional()
-  assento10: boolean;
+  horaOrigem: string;
 }

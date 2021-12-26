@@ -1,37 +1,12 @@
-import { Companhia } from 'src/companhias/companhia.entity';
-import {
-  BaseEntity,
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  OneToMany,
-  JoinColumn,
-  PrimaryColumn,
-  ManyToOne,
-} from 'typeorm';
+import { Voo } from './voo.entity';
+import { BaseEntity, PrimaryGeneratedColumn, Column, OneToOne } from 'typeorm';
 
-@Entity()
-export class Voo extends BaseEntity {
+export class Assento extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Companhia, (Companhia) => Companhia.nome, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-  })
-  companhia: Companhia;
-
-  @Column({ nullable: false, type: 'varchar', length: 100 })
-  origem: string;
-
-  @Column({ nullable: false, type: 'varchar', length: 100 })
-  destino: string;
-
-  @Column({ nullable: false, type: 'time' })
-  horaOrigem: string;
-
-  @Column({ nullable: false, type: 'decimal' })
-  valor: string;
+  @OneToOne(() => Voo)
+  voo: Voo;
 
   @Column({ nullable: false, type: 'boolean', default: true })
   assento1: boolean;
