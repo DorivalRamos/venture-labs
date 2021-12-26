@@ -31,4 +31,19 @@ export class Voo extends BaseEntity {
 
   @Column({ nullable: false, type: 'decimal' })
   valor: string;
+
+  @Column({ nullable: false, type: 'boolean', default: true })
+  assento1: string;
+
+  @Column({ nullable: false, type: 'boolean', default: true })
+  assento2: string;
+
+  @Column({ nullable: false, type: 'boolean', default: true })
+  assento3: string;
+
+  @Column({ nullable: false, type: 'boolean', default: true })
+  assento4: string;
+
+  @Column({ nullable: false, type: 'boolean', default: true })
+  assento5: string;
 }
