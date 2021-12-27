@@ -26,24 +26,24 @@ export class Voo extends BaseEntity {
   @Column({ nullable: false, type: 'varchar', length: 100 })
   destino: string;
 
-  @Column({ nullable: false, type: 'time' })
-  horaOrigem: string;
+  @Column({ nullable: false, type: 'varchar' })
+  horaSaida: string;
 
   @Column({ nullable: false, type: 'decimal' })
   valor: string;
 
-  @Column({ nullable: false, type: 'boolean', default: true })
+  @Column({ nullable: false, type: 'varchar', default: 'livre' })
   assento1: string;
 
-  @Column({ nullable: false, type: 'boolean', default: true })
+  @Column({ nullable: false, type: 'varchar', default: 'livre' })
   assento2: string;
 
-  @Column({ nullable: false, type: 'boolean', default: true })
+  @Column({ nullable: false, type: 'varchar', default: 'livre' })
   assento3: string;
 
-  @Column({ nullable: false, type: 'boolean', default: true })
+  @Column({ nullable: false, type: 'varchar', default: 'livre' })
   assento4: string;
 
-  @Column({ nullable: false, type: 'boolean', default: true })
+  @Column({ nullable: false, type: 'varchar', default: 'livre' })
   assento5: string;
 }
