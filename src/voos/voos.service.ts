@@ -8,6 +8,7 @@ import { CreateVooDto } from './dto/create-voo.dto';
 import { UpdateVooDto } from './dto/update-voo.dto';
 import { Voo } from '../Models/voo.entity';
 import { VooRepository } from './voos.repository';
+import { NotFoundError } from 'rxjs';
 
 @Injectable()
 export class VoosService {
@@ -19,7 +20,7 @@ export class VoosService {
     return this.VooRepository.createVoo(createVooDto);
   }
 
-  async findAll() {
+  async findAll(): Promise<Voo> {
     return this.VooRepository.FindAll();
   }
 
@@ -34,42 +35,12 @@ export class VoosService {
   }
 
   async updateVoo(updateVooDto: UpdateVooDto, id: string): Promise<Voo> {
-    const voo = await this.findOne(id);
-    const { horaOrigem } = voo;
+    const voo = this.VooRepository.assento(updateVooDto, id);
 
-    const date = new Date();
-    const h = date.getHours();
-    const m = date.getMinutes();
-    const hora = h + ':' + m;
-    const horas = parseFloat(horaOrigem) - parseFloat(hora);
-    console.log(horaOrigem, hora, horas);
-
-    /* if ((horas) <= 1) {
-      throw new InternalServerErrorException(
-        'Horario minimo de compra já ultrapassado',
-      );
-    } */
-
-    /* const {
-      assento1,
-      assento2,
-      assento3,
-      assento4,
-      assento5,
-      assento6,
-      assento7,
-      assento8,
-      assento9,
-      assento10,
-    } = updateVooDto;
- */
-    try {
-      await voo.save();
-      return voo;
-    } catch (error) {
-      throw new InternalServerErrorException(
-        'Erro ao salvar os dados no banco de dados',
-      );
+    if (!voo){
+      throw new NotFoundException('não existe esse voo');
     }
+
+    return voo;
   }
 }

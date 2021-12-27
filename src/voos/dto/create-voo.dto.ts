@@ -4,7 +4,8 @@ import {
   MaxLength,
   MinLength,
   IsDecimal,
-  IsMilitaryTime,
+  IsDateString,
+  IsDate,
 } from 'class-validator';
 import { Companhia } from 'src/Models/companhia.entity';
 
@@ -33,6 +34,6 @@ export class CreateVooDto {
   @IsNotEmpty({ message: 'Informe um Valor de Voo valido' })
   valor: string;
 
-  @IsMilitaryTime()
-  horaOrigem: string;
+  @IsString()
+  horaSaida: string;
 }

@@ -17,5 +17,20 @@ export class UpdateVooDto extends PartialType(CreateVooDto) {
   valor: string;
 
   @IsOptional()
-  horaOrigem: string;
+  horaSaida: string;
+
+  @IsOptional()
+  assento1: string;
+
+  @IsOptional()
+  assento2: string;
+
+  @IsOptional()
+  assento3: string;
+
+  @IsOptional()
+  assento4: string;
+
+  @IsOptional()
+  assento5: string;
 }
